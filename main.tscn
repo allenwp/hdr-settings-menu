@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://nqk68chptty3"]
+
+[ext_resource type="Script" uid="uid://dyovxiellrr3" path="res://main_control.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://32vdf5447dws" path="res://hdr_menu_simple.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dwhurmf81s6tu" path="res://hdr_menu_advanced.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dwg4mpp38rgsl" path="res://hdr_menu_ignore_screen.tscn" id="4_lquwl"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("menus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+menus = [NodePath("HBoxContainer/HDRMenuSimple"), NodePath("HBoxContainer/HDRMenuAdvanced"), NodePath("HBoxContainer/HDRMenuIgnoreScreen")]
+
+[node name="ColorRects" type="Node" parent="."]
+
+[node name="SDR" type="Label" parent="ColorRects"]
+offset_left = 934.0
+offset_top = 436.0
+offset_right = 974.0
+offset_bottom = 459.0
+text = "SDR"
+
+[node name="ColorRect" type="ColorRect" parent="ColorRects"]
+offset_left = 883.0
+offset_top = 461.0
+offset_right = 1005.0
+offset_bottom = 624.0
+color = Color(0.176471, 0, 1, 1)
+
+[node name="HDR" type="Label" parent="ColorRects"]
+offset_left = 1055.0
+offset_top = 436.0
+offset_right = 1095.0
+offset_bottom = 459.0
+text = "HDR"
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRects"]
+offset_left = 1005.0
+offset_top = 461.0
+offset_right = 1127.0
+offset_bottom = 624.0
+color = Color(0.352, 0, 2, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 491.0
+offset_bottom = 278.0
+
+[node name="HDRMenuSimple" parent="HBoxContainer" instance=ExtResource("2_0xm2m")]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128.75, 0)
+layout_mode = 2
+
+[node name="HDRMenuAdvanced" parent="HBoxContainer" instance=ExtResource("3_1bvp3")]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128.75, 0)
+layout_mode = 2
+
+[node name="HDRMenuIgnoreScreen" parent="HBoxContainer" instance=ExtResource("4_lquwl")]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2

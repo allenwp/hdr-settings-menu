@@ -1,0 +1,104 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwhurmf81s6tu"]
+
+[ext_resource type="Script" uid="uid://bwwxoaltmeb7w" path="res://hdr_menu_custom.gd" id="1_40ymi"]
+
+[node name="HDRMenuAdvanced" type="VBoxContainer"]
+script = ExtResource("1_40ymi")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Style B - Advanced"
+
+[node name="HDRCheckButton" type="CheckButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "HDR"
+
+[node name="HDROptions" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="HDROptions"]
+custom_minimum_size = Vector2(28.31, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HDROptions"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HDROptions/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HDROptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Brightness"
+
+[node name="CustomBrightnessLabel" type="Label" parent="HDROptions/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "200"
+horizontal_alignment = 2
+
+[node name="CustomBrightness" type="CheckButton" parent="HDROptions/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Custom brightness"
+
+[node name="CustomBrightnessControls" type="Control" parent="HDROptions/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="CustomBrightnessSlider" type="HSlider" parent="HDROptions/VBoxContainer/CustomBrightnessControls"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 231.0
+offset_bottom = 16.0
+min_value = 10.0
+max_value = 1000.0
+step = 10.0
+value = 200.0
+rounded = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HDROptions/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HDROptions/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Max luminance"
+
+[node name="CustomMaxLumLabel" type="Label" parent="HDROptions/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1000"
+horizontal_alignment = 2
+
+[node name="CustomMaxLum" type="CheckButton" parent="HDROptions/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Custom max luminance"
+
+[node name="CustomMaxLumControls" type="Control" parent="HDROptions/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="CustomMaxLumSlider" type="HSlider" parent="HDROptions/VBoxContainer/CustomMaxLumControls"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 231.0
+offset_bottom = 16.0
+min_value = 200.0
+max_value = 2000.0
+step = 10.0
+value = 1000.0
+rounded = true
+
+[connection signal="toggled" from="HDRCheckButton" to="." method="_on_hdr_check_button_toggled"]
+[connection signal="toggled" from="HDROptions/VBoxContainer/CustomBrightness" to="." method="_on_custom_brightness_toggled"]
+[connection signal="value_changed" from="HDROptions/VBoxContainer/CustomBrightnessControls/CustomBrightnessSlider" to="." method="_on_custom_brightness_slider_value_changed"]
+[connection signal="toggled" from="HDROptions/VBoxContainer/CustomMaxLum" to="." method="_on_custom_max_lum_toggled"]
+[connection signal="value_changed" from="HDROptions/VBoxContainer/CustomMaxLumControls/CustomMaxLumSlider" to="." method="_on_custom_max_lum_slider_value_changed"]
