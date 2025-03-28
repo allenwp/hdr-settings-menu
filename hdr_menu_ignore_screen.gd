@@ -1,7 +1,11 @@
 extends HDRMenu
 
-const default_reference_lum = 200
-const default_max_lum = 1000
+var default_reference_lum
+var default_max_lum
+
+func _init() -> void:
+	default_reference_lum = ProjectSettings.get_setting("display/window/hdr/reference_luminance")
+	default_max_lum = ProjectSettings.get_setting("display/window/hdr/max_luminance")
 
 
 func refresh_menu() -> void:
