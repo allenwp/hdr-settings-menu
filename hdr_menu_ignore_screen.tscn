@@ -9,10 +9,6 @@ script = ExtResource("1_k4hi7")
 layout_mode = 2
 text = "Style C - Ignore Screen Lum."
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 2
-text = "(Requires custom brightness)"
-
 [node name="HDRCheckButton" type="CheckButton" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
@@ -96,7 +92,9 @@ layout_mode = 2
 text = "Reset"
 
 [connection signal="toggled" from="HDRCheckButton" to="." method="_on_hdr_check_button_toggled"]
+[connection signal="drag_started" from="HDROptions/VBoxContainer/HBoxContainer3/BrightnessSlider" to="." method="_on_interact"]
 [connection signal="value_changed" from="HDROptions/VBoxContainer/HBoxContainer3/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
 [connection signal="pressed" from="HDROptions/VBoxContainer/HBoxContainer3/ResetBrightness" to="." method="_on_reset_brightness_pressed"]
+[connection signal="drag_started" from="HDROptions/VBoxContainer/HBoxContainer4/MaxLumSlider" to="." method="_on_interact"]
 [connection signal="value_changed" from="HDROptions/VBoxContainer/HBoxContainer4/MaxLumSlider" to="." method="_on_max_lum_slider_value_changed"]
 [connection signal="pressed" from="HDROptions/VBoxContainer/HBoxContainer4/ResetMaxLum" to="." method="_on_reset_max_lum_pressed"]
