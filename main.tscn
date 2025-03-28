@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://nqk68chptty3"]
+[gd_scene load_steps=8 format=3 uid="uid://nqk68chptty3"]
 
 [ext_resource type="Script" uid="uid://dyovxiellrr3" path="res://main_control.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://32vdf5447dws" path="res://hdr_menu_simple.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dwhurmf81s6tu" path="res://hdr_menu_advanced.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dwg4mpp38rgsl" path="res://hdr_menu_ignore_screen.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d6sf77e3fr2c" path="res://hdr_menu_screen_lum.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://jnc4cr2mhg00" path="res://hdr_menu_automatic_simple.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bqn5dapd5anv4" path="res://hdr_menu_screen_lum_saved.tscn" id="6_272bh"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("menus")]
 layout_mode = 3
@@ -13,36 +16,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
-menus = [NodePath("HBoxContainer/HDRMenuSimple"), NodePath("HBoxContainer/HDRMenuAdvanced"), NodePath("HBoxContainer/HDRMenuIgnoreScreen")]
+menus = [NodePath("HBoxContainer/HDRMenuSimple"), NodePath("HBoxContainer/HDRMenuAdvanced"), NodePath("HBoxContainer/HDRMenuIgnoreScreen"), NodePath("HBoxContainer2/HDRMenuScreenLuminance"), NodePath("HBoxContainer2/HDRMenuScreenLumSaved"), NodePath("HBoxContainer2/HDRMenuAutomaticSimple")]
 
 [node name="ColorRects" type="Node" parent="."]
 
 [node name="SDR" type="Label" parent="ColorRects"]
-offset_left = 934.0
-offset_top = 436.0
-offset_right = 974.0
-offset_bottom = 459.0
+offset_left = 948.0
+offset_top = 591.0
+offset_right = 988.0
+offset_bottom = 614.0
 text = "SDR"
 
 [node name="ColorRect" type="ColorRect" parent="ColorRects"]
-offset_left = 883.0
-offset_top = 461.0
-offset_right = 1005.0
-offset_bottom = 624.0
+offset_left = 897.0
+offset_top = 616.0
+offset_right = 1019.0
+offset_bottom = 634.18
 color = Color(0.176471, 0, 1, 1)
 
 [node name="HDR" type="Label" parent="ColorRects"]
-offset_left = 1055.0
-offset_top = 436.0
-offset_right = 1095.0
-offset_bottom = 459.0
+offset_left = 1069.0
+offset_top = 591.0
+offset_right = 1109.0
+offset_bottom = 614.0
 text = "HDR"
 
 [node name="ColorRect2" type="ColorRect" parent="ColorRects"]
-offset_left = 1005.0
-offset_top = 461.0
-offset_right = 1127.0
-offset_bottom = 624.0
+offset_left = 1019.0
+offset_top = 616.0
+offset_right = 1141.0
+offset_bottom = 634.18
 color = Color(0.352, 0, 2, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -68,4 +71,27 @@ layout_mode = 2
 
 [node name="HDRMenuIgnoreScreen" parent="HBoxContainer" instance=ExtResource("4_lquwl")]
 custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 338.0
+offset_right = 514.0
+offset_bottom = 616.0
+
+[node name="HDRMenuScreenLuminance" parent="HBoxContainer2" instance=ExtResource("5_lquwl")]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(128.75, 0)
+layout_mode = 2
+
+[node name="HDRMenuScreenLumSaved" parent="HBoxContainer2" instance=ExtResource("6_272bh")]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(128.75, 0)
+layout_mode = 2
+
+[node name="HDRMenuAutomaticSimple" parent="HBoxContainer2" instance=ExtResource("6_7mycd")]
 layout_mode = 2

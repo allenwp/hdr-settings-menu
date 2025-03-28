@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwg4mpp38rgsl"]
+[gd_scene load_steps=2 format=3 uid="uid://jnc4cr2mhg00"]
 
-[ext_resource type="Script" uid="uid://cgtraghyboo55" path="res://hdr_menu_ignore_screen.gd" id="1_k4hi7"]
+[ext_resource type="Script" uid="uid://csoca1omdw0j0" path="res://hdr_menu_automatic_simple.gd" id="1_q32m1"]
 
-[node name="HDRMenuIgnoreScreen" type="VBoxContainer"]
-script = ExtResource("1_k4hi7")
+[node name="HDRMenuAutomaticSimple" type="VBoxContainer"]
+script = ExtResource("1_q32m1")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-text = "Style C - Ignore Screen Lum."
+text = "Style F - Automatic Simple"
 
 [node name="HDRCheckButton" type="CheckButton" parent="."]
 unique_name_in_owner = true
@@ -91,9 +91,9 @@ layout_mode = 2
 text = "Reset"
 
 [connection signal="toggled" from="HDRCheckButton" to="." method="_on_hdr_check_button_toggled"]
-[connection signal="drag_started" from="HDROptions/VBoxContainer/HBoxContainer3/BrightnessSlider" to="." method="_on_interact"]
+[connection signal="drag_started" from="HDROptions/VBoxContainer/HBoxContainer3/BrightnessSlider" to="." method="_on_brightness_slider_drag_started"]
 [connection signal="value_changed" from="HDROptions/VBoxContainer/HBoxContainer3/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
 [connection signal="pressed" from="HDROptions/VBoxContainer/HBoxContainer3/ResetBrightness" to="." method="_on_reset_brightness_pressed"]
-[connection signal="drag_started" from="HDROptions/VBoxContainer/HBoxContainer4/MaxLumSlider" to="." method="_on_interact"]
+[connection signal="drag_started" from="HDROptions/VBoxContainer/HBoxContainer4/MaxLumSlider" to="." method="_on_max_lum_slider_drag_started"]
 [connection signal="value_changed" from="HDROptions/VBoxContainer/HBoxContainer4/MaxLumSlider" to="." method="_on_max_lum_slider_value_changed"]
 [connection signal="pressed" from="HDROptions/VBoxContainer/HBoxContainer4/ResetMaxLum" to="." method="_on_reset_max_lum_pressed"]
