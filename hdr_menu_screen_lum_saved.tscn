@@ -49,7 +49,10 @@ size_flags_horizontal = 3
 text = "200"
 horizontal_alignment = 2
 
-[node name="BrightnessSlider" type="HSlider" parent="HDROptions/VBoxContainer/CustomLuminance"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="HDROptions/VBoxContainer/CustomLuminance"]
+layout_mode = 2
+
+[node name="BrightnessSlider" type="HSlider" parent="HDROptions/VBoxContainer/CustomLuminance/HBoxContainer4"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
@@ -59,6 +62,10 @@ max_value = 1000.0
 step = 10.0
 value = 200.0
 rounded = true
+
+[node name="ResetBrightness" type="Button" parent="HDROptions/VBoxContainer/CustomLuminance/HBoxContainer4"]
+layout_mode = 2
+text = "Reset"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HDROptions/VBoxContainer/CustomLuminance"]
 layout_mode = 2
@@ -74,7 +81,10 @@ size_flags_horizontal = 3
 text = "1000"
 horizontal_alignment = 2
 
-[node name="MaxLumSlider" type="HSlider" parent="HDROptions/VBoxContainer/CustomLuminance"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="HDROptions/VBoxContainer/CustomLuminance"]
+layout_mode = 2
+
+[node name="MaxLumSlider" type="HSlider" parent="HDROptions/VBoxContainer/CustomLuminance/HBoxContainer3"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
@@ -85,7 +95,13 @@ step = 10.0
 value = 1000.0
 rounded = true
 
+[node name="ResetMaxLum" type="Button" parent="HDROptions/VBoxContainer/CustomLuminance/HBoxContainer3"]
+layout_mode = 2
+text = "Reset"
+
 [connection signal="toggled" from="HDRCheckButton" to="." method="_on_hdr_check_button_toggled"]
 [connection signal="toggled" from="HDROptions/VBoxContainer/UseScreenLuminance" to="." method="_on_use_screen_luminance_toggled"]
-[connection signal="value_changed" from="HDROptions/VBoxContainer/CustomLuminance/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
-[connection signal="value_changed" from="HDROptions/VBoxContainer/CustomLuminance/MaxLumSlider" to="." method="_on_max_lum_slider_value_changed"]
+[connection signal="value_changed" from="HDROptions/VBoxContainer/CustomLuminance/HBoxContainer4/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
+[connection signal="pressed" from="HDROptions/VBoxContainer/CustomLuminance/HBoxContainer4/ResetBrightness" to="." method="_on_reset_brightness_pressed"]
+[connection signal="value_changed" from="HDROptions/VBoxContainer/CustomLuminance/HBoxContainer3/MaxLumSlider" to="." method="_on_max_lum_slider_value_changed"]
+[connection signal="pressed" from="HDROptions/VBoxContainer/CustomLuminance/HBoxContainer3/ResetMaxLum" to="." method="_on_reset_max_lum_pressed"]

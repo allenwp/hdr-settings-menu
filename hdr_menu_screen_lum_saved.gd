@@ -40,3 +40,13 @@ func _load_project_settings() -> void:
 	var window = get_window()
 	window.hdr_output_reference_luminance = ProjectSettings.get_setting("display/window/hdr/reference_luminance")
 	window.hdr_output_max_luminance = ProjectSettings.get_setting("display/window/hdr/max_luminance")
+
+
+func _on_reset_brightness_pressed() -> void:
+	var window = get_window()
+	window.hdr_output_reference_luminance = DisplayServer.screen_get_sdr_white_level(window.current_screen)
+
+
+func _on_reset_max_lum_pressed() -> void:
+	var window = get_window()
+	window.hdr_output_max_luminance = DisplayServer.screen_get_max_luminance(window.current_screen)
