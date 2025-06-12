@@ -18,16 +18,16 @@ func _on_max_lum_slider_value_changed(value: float) -> void:
 
 
 func _on_reset_brightness_pressed() -> void:
-	get_window().hdr_output_use_screen_luminance = true # FIXME: Needs separate settings
+	get_window().hdr_output_auto_adjust_reference_luminance = true
 
 
 func _on_reset_max_lum_pressed() -> void:
-	get_window().hdr_output_use_screen_luminance = true # FIXME: Needs separate settings
+	get_window().hdr_output_auto_adjust_max_luminance = true
 
 
 func _on_brightness_slider_drag_started() -> void:
-	get_window().hdr_output_use_screen_luminance = false # FIXME: Needs separate settings
+	get_window().hdr_output_auto_adjust_reference_luminance = false
 
 
 func _on_max_lum_slider_drag_started() -> void:
-	get_window().hdr_output_use_screen_luminance = false # FIXME: Needs separate settings
+	get_window().hdr_output_auto_adjust_max_luminance = false

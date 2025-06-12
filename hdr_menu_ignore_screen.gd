@@ -26,14 +26,18 @@ func _on_max_lum_slider_value_changed(value: float) -> void:
 
 
 func _on_reset_brightness_pressed() -> void:
-	_on_interact()
+	_on_interact_ref()
 	get_window().hdr_output_reference_luminance = default_reference_lum
 
 
 func _on_reset_max_lum_pressed() -> void:
-	_on_interact()
+	_on_interact_max()
 	get_window().hdr_output_max_luminance = default_max_lum
 
 
-func _on_interact() -> void:
-	get_window().hdr_output_use_screen_luminance = false
+func _on_interact_ref() -> void:
+	get_window().hdr_output_auto_adjust_reference_luminance = false
+
+
+func _on_interact_max() -> void:
+	get_window().hdr_output_auto_adjust_max_luminance = false

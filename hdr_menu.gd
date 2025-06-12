@@ -2,10 +2,10 @@ class_name  HDRMenu
 extends Control
 
 
-func _is_hdr_supported(screen: int) -> bool:
+func _is_hdr_supported() -> bool:
 	return DisplayServer.has_feature(DisplayServer.FEATURE_HDR) \
 		&& RenderingServer.get_rendering_device().has_feature(RenderingDevice.SUPPORTS_HDR_OUTPUT) \
-		&& DisplayServer.screen_is_hdr_supported(screen)
+		&& DisplayServer.window_is_hdr_output_supported(get_window().get_window_id())
 
 
 func _ready() -> void:
@@ -16,8 +16,7 @@ func _ready() -> void:
 
 
 func refresh_menu() -> void:
-	var screen := get_window().current_screen
-	var hdr_supported := _is_hdr_supported(screen)
+	var hdr_supported := _is_hdr_supported()
 	%HDRCheckButton.disabled = !hdr_supported
 
 	var window := get_window()
